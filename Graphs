@@ -1,0 +1,174 @@
+import React from 'react';
+import { LineChart, Line, XAxis, YAxis, CartesianGrid, Tooltip, Legend, ResponsiveContainer, AreaChart, Area, ScatterChart, Scatter, ZAxis, RadarChart, PolarGrid, PolarAngleAxis, PolarRadiusAxis, Radar, BarChart, Bar } from 'recharts';
+
+// Generate sample data for temporal signal processing
+const generateTemporalData = () => {
+  const data = [];
+  for (let t = 0; t < 50; t++) {
+    data.push({
+      time: t,
+      rawSignal: Math.sin(t * 0.5) * 3 + Math.random() * 0.5,
+      filteredSignal: Math.sin(t * 0.5) * 3,
+      noiseLevel: Math.random() * 0.5
+    });
+  }
+  return data;
+};
+
+// Generate sensor fusion accuracy data
+const sensorFusionData = [
+  { snr: 0, early: 65, late: 70, deepStep: 85 },
+  { snr: 5, early: 70, late: 75, deepStep: 88 },
+  { snr: 10, early: 75, late: 80, deepStep: 92 },
+  { snr: 15, early: 78, late: 83, deepStep: 94 },
+  { snr: 20, early: 82, late: 85, deepStep: 95 },
+  { snr: 25, early: 85, late: 87, deepStep: 96 },
+  { snr: 30, early: 87, late: 89, deepStep: 97 },
+];
+
+// Generate multi-modal performance data
+const radarData = [
+  { subject: 'Object Detection', deepStep: 95, traditional: 80 },
+  { subject: 'Tracking', deepStep: 92, traditional: 75 },
+  { subject: 'Mapping', deepStep: 90, traditional: 78 },
+  { subject: 'Lane Detection', deepStep: 94, traditional: 82 },
+  { subject: 'Occlusion Handling', deepStep: 88, traditional: 70 },
+];
+
+// Generate latency comparison data
+const latencyData = [
+  { complexity: 'Low', modular: 50, deepStep: 35, pnpNet: 45 },
+  { complexity: 'Medium', modular: 75, deepStep: 45, pnpNet: 65 },
+  { complexity: 'High', modular: 100, deepStep: 60, pnpNet: 85 },
+  { complexity: 'Very High', modular: 150, deepStep: 85, pnpNet: 120 },
+];
+
+const spatialData = Array.from({ length: 50 }, (_, i) => ({
+  x: Math.cos(i * 0.2) * (10 + Math.random() * 5),
+  y: Math.sin(i * 0.2) * (10 + Math.random() * 5),
+  accuracy: 50 + Math.random() * 50
+}));
+
+const Main = () => {
+  return (
+    <div className="space-y-8 p-4">
+      <h2 className="text-2xl font-bold mb-4">Signal Processing Visualizations for Autonomous Vehicles</h2>
+      
+      {/* Graph 1: Temporal Signal Processing */}
+      <div className="bg-white p-4 rounded-lg shadow">
+        <h3 className="text-lg font-semibold mb-2">Temporal Signal Processing</h3>
+        <ResponsiveContainer width="100%" height={300}>
+          <LineChart data={generateTemporalData()}>
+            <CartesianGrid strokeDasharray="3 3" />
+            <XAxis dataKey="time" label={{ value: 'Time (ms)', position: 'bottom' }} />
+            <YAxis label={{ value: 'Amplitude', angle: -90, position: 'left' }} />
+            <Tooltip />
+            <Legend />
+            <Line type="monotone" dataKey="rawSignal" stroke="#8884d8" name="Raw Signal" />
+            <Line type="monotone" dataKey="filteredSignal" stroke="#82ca9d" name="Filtered Signal" />
+            <Line type="monotone" dataKey="noiseLevel" stroke="#ffc658" name="Noise Level" />
+          </LineChart>
+        </ResponsiveContainer>
+      </div>
+
+      {/* Graph 2: Sensor Fusion Accuracy */}
+      <div className="bg-white p-4 rounded-lg shadow">
+        <h3 className="text-lg font-semibold mb-2">Sensor Fusion Accuracy vs SNR</h3>
+        <ResponsiveContainer width="100%" height={300}>
+          <LineChart data={sensorFusionData}>
+            <CartesianGrid strokeDasharray="3 3" />
+            <XAxis dataKey="snr" label={{ value: 'Signal-to-Noise Ratio (dB)', position: 'bottom' }} />
+            <YAxis label={{ value: 'Accuracy (%)', angle: -90, position: 'left' }} />
+            <Tooltip />
+            <Legend />
+            <Line type="monotone" dataKey="early" stroke="#8884d8" name="Early Fusion" />
+            <Line type="monotone" dataKey="late" stroke="#82ca9d" name="Late Fusion" />
+            <Line type="monotone" dataKey="deepStep" stroke="#ffc658" name="DeepSTEP" />
+          </LineChart>
+        </ResponsiveContainer>
+      </div>
+
+      {/* Graph 3: Multi-Modal Performance Radar */}
+      <div className="bg-white p-4 rounded-lg shadow">
+        <h3 className="text-lg font-semibold mb-2">Multi-Modal Performance Comparison</h3>
+        <ResponsiveContainer width="100%" height={300}>
+          <RadarChart data={radarData}>
+            <PolarGrid />
+            <PolarAngleAxis dataKey="subject" />
+            <PolarRadiusAxis angle={30} domain={[0, 100]} />
+            <Radar name="DeepSTEP" dataKey="deepStep" stroke="#8884d8" fill="#8884d8" fillOpacity={0.6} />
+            <Radar name="Traditional" dataKey="traditional" stroke="#82ca9d" fill="#82ca9d" fillOpacity={0.6} />
+            <Legend />
+          </RadarChart>
+        </ResponsiveContainer>
+      </div>
+
+      {/* Graph 4: System Latency Comparison */}
+      <div className="bg-white p-4 rounded-lg shadow">
+        <h3 className="text-lg font-semibold mb-2">System Latency Comparison</h3>
+        <ResponsiveContainer width="100%" height={300}>
+          <BarChart data={latencyData}>
+            <CartesianGrid strokeDasharray="3 3" />
+            <XAxis dataKey="complexity" />
+            <YAxis label={{ value: 'Latency (ms)', angle: -90, position: 'left' }} />
+            <Tooltip />
+            <Legend />
+            <Bar dataKey="modular" fill="#8884d8" name="Modular System" />
+            <Bar dataKey="deepStep" fill="#82ca9d" name="DeepSTEP" />
+            <Bar dataKey="pnpNet" fill="#ffc658" name="PnPNet" />
+          </BarChart>
+        </ResponsiveContainer>
+      </div>
+
+      {/* Graph 5: Spatial Feature Distribution */}
+      <div className="bg-white p-4 rounded-lg shadow">
+        <h3 className="text-lg font-semibold mb-2">Spatial Feature Distribution</h3>
+        <ResponsiveContainer width="100%" height={300}>
+          <ScatterChart>
+            <CartesianGrid />
+            <XAxis type="number" dataKey="x" name="X Position" />
+            <YAxis type="number" dataKey="y" name="Y Position" />
+            <ZAxis type="number" dataKey="accuracy" range={[20, 100]} name="Accuracy" />
+            <Tooltip cursor={{ strokeDasharray: '3 3' }} />
+            <Scatter name="Features" data={spatialData} fill="#8884d8" />
+          </ScatterChart>
+        </ResponsiveContainer>
+      </div>
+
+      {/* Graph 6: Temporal Feature Analysis */}
+      <div className="bg-white p-4 rounded-lg shadow">
+        <h3 className="text-lg font-semibold mb-2">Temporal Feature Analysis</h3>
+        <ResponsiveContainer width="100%" height={300}>
+          <AreaChart data={generateTemporalData()}>
+            <CartesianGrid strokeDasharray="3 3" />
+            <XAxis dataKey="time" />
+            <YAxis />
+            <Tooltip />
+            <Legend />
+            <Area type="monotone" dataKey="rawSignal" stackId="1" stroke="#8884d8" fill="#8884d8" name="Raw Signal" />
+            <Area type="monotone" dataKey="noiseLevel" stackId="1" stroke="#82ca9d" fill="#82ca9d" name="Noise Level" />
+          </AreaChart>
+        </ResponsiveContainer>
+      </div>
+
+      {/* Graph 7: Processing Pipeline Performance */}
+      <div className="bg-white p-4 rounded-lg shadow">
+        <h3 className="text-lg font-semibold mb-2">Processing Pipeline Performance</h3>
+        <ResponsiveContainer width="100%" height={300}>
+          <LineChart data={generateTemporalData()}>
+            <CartesianGrid strokeDasharray="3 3" />
+            <XAxis dataKey="time" label={{ value: 'Processing Stage', position: 'bottom' }} />
+            <YAxis label={{ value: 'Performance Metrics', angle: -90, position: 'left' }} />
+            <Tooltip />
+            <Legend />
+            <Line type="monotone" dataKey="rawSignal" stroke="#8884d8" name="Throughput" />
+            <Line type="monotone" dataKey="filteredSignal" stroke="#82ca9d" name="Accuracy" />
+            <Line type="monotone" dataKey="noiseLevel" stroke="#ffc658" name="Resource Usage" />
+          </LineChart>
+        </ResponsiveContainer>
+      </div>
+    </div>
+  );
+};
+
+export default Main;
