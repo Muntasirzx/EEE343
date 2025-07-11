@@ -30,13 +30,13 @@ The goal of this project is to accurately identify and differentiate between ind
 A thorough analysis of the dataset was conducted to understand its characteristics before training.
 
 ### Class and Bounding Box Distribution
-![Label Distribution and Bounding Box Analysis](https://raw.githubusercontent.com/your-username/your-repo/main/images/labels.jpg)
+![Label Distribution and Bounding Box Analysis](https://raw.githubusercontent.com/Muntasirzx/EEE343/eb21b1054ea33a5c0e168d0b24445566a4d846b4/Data/labels.jpg)
 * **Class Imbalance**: The bar chart clearly shows that the dataset contains significantly more instances of the `with_mask` class (approx. 1350 instances) than the `unmasked` class (approx. 450 instances). This is a realistic scenario but one that requires a robust model to prevent bias.
 * **Spatial Distribution**: The scatter plot of `y` vs `x` coordinates shows that the objects (faces) are predominantly centered within the images, which is ideal for training.
 * **Size Distribution**: The `height` vs `width` scatter plot indicates a consistent aspect ratio for the bounding boxes, suggesting that the objects were captured from a similar distance and perspective.
 
 ### Bounding Box Attribute Correlation
-![Label Correlogram](https://raw.githubusercontent.com/your-username/your-repo/main/images/labels_correlogram.jpg)
+![Label Correlogram](https://raw.githubusercontent.com/Muntasirzx/EEE343/eb21b1054ea33a5c0e168d0b24445566a4d846b4/Data/labels_correlogram.jpg)
 * The correlogram provides a deeper look into the relationships between bounding box attributes. The strong correlations between `x/y` and `width/height` confirm the centralized and uniformly-sized nature of the objects in the dataset, which contributes to stable training.
 
 ---
@@ -58,19 +58,19 @@ The final metrics demonstrate a highly effective model, especially for the major
 ### Performance Curves Explained
 
 #### Precision-Recall Curve
-![PR Curve](https://raw.githubusercontent.com/your-username/your-repo/main/images/PR_curve.png)
+![PR Curve](https://raw.githubusercontent.com/Muntasirzx/EEE343/eb21b1054ea33a5c0e168d0b24445566a4d846b4/Data/PR_curve.png)
 * This curve shows the trade-off between precision (how many detections are correct) and recall (how many actual objects are found). The large area under the curve, resulting in a mean Average Precision (mAP) of **0.856**, indicates that the model maintains high precision even while achieving high recall.
 
 #### F1-Confidence Curve
-![F1 Curve](https://raw.githubusercontent.com/your-username/your-repo/main/images/F1_curve.png)
+![F1 Curve](https://raw.githubusercontent.com/Muntasirzx/EEE343/eb21b1054ea33a5c0e168d0b24445566a4d846b4/Data/F1_curve.png)
 * The F1-Score represents the harmonic mean of precision and recall. This curve is crucial for selecting the optimal confidence threshold for deployment. Our model achieves its peak F1-Score of **0.86** at a confidence threshold of **0.420**, providing the best balance between not missing objects and not making false detections.
 
 #### Recall-Confidence Curve
-![Recall Curve](https://raw.githubusercontent.com/your-username/your-repo/main/images/R_curve.png)
+![Recall Curve](https://raw.githubusercontent.com/Muntasirzx/EEE343/eb21b1054ea33a5c0e168d0b24445566a4d846b4/Data/R_curve.png)
 * This curve illustrates how recall is affected as we change the confidence threshold. It shows that we can still achieve over 80% recall even at a high confidence of ~0.7, demonstrating the model's reliability.
 
 ### Confusion Matrix Analysis
-![Normalized Confusion Matrix](https://raw.githubusercontent.com/your-username/your-repo/main/images/confusion_matrix_normalized.png)
+![Normalized Confusion Matrix](https://raw.githubusercontent.com/Muntasirzx/EEE343/eb21b1054ea33a5c0e168d0b24445566a4d846b4/Data/confusion_matrix.png)
 * The confusion matrix gives a clear, normalized view of the model's classification performance.
     * **`with_mask` class**: Correctly identified **90%** of the time.
     * **`unmasked` class**: Correctly identified **83%** of the time.
@@ -82,9 +82,9 @@ The final metrics demonstrate a highly effective model, especially for the major
 
 The following images are predictions from the validation set, demonstrating the model's robust performance on unseen data.
 
-![Validation Batch 0](https://raw.githubusercontent.com/your-username/your-repo/main/images/val_batch0_pred.jpg)
-![Validation Batch 1](https://raw.githubusercontent.com/your-username/your-repo/main/images/val_batch1_pred.jpg)
-![Validation Batch 2](https://raw.githubusercontent.com/your-username/your-repo/main/images/val_batch2_pred.jpg)
+![Validation Batch 0](https://raw.githubusercontent.com/Muntasirzx/EEE343/eb21b1054ea33a5c0e168d0b24445566a4d846b4/Data/val_batch0_pred.jpg)
+![Validation Batch 1](https://raw.githubusercontent.com/Muntasirzx/EEE343/eb21b1054ea33a5c0e168d0b24445566a4d846b4/Data/val_batch1_pred.jpg)
+![Validation Batch 2](https://raw.githubusercontent.com/Muntasirzx/EEE343/eb21b1054ea33a5c0e168d0b24445566a4d846b4/Data/val_batch2_pred.jpg)
 
 ---
 
