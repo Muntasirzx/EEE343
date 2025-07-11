@@ -62,7 +62,7 @@ The final metrics demonstrate a highly effective model, especially for the major
 * This curve shows the trade-off between precision (how many detections are correct) and recall (how many actual objects are found). The large area under the curve, resulting in a mean Average Precision (mAP) of **0.856**, indicates that the model maintains high precision even while achieving high recall.
 
 #### F1-Confidence Curve
-![F1 Curve](https://raw.githubusercontent.com/Muntasirzx/EEE343/eb21b1054ea33a5c0e168d0b24445566a4d846b4/Data/F1_curve.png)
+![F1 Curve](https://raw.githubusercontent.com/Muntasirzx/EEE343/8655bfb45fbd8ab9b8093307d0c725a6b60c7217/Data/F1_curve.png)
 * The F1-Score represents the harmonic mean of precision and recall. This curve is crucial for selecting the optimal confidence threshold for deployment. Our model achieves its peak F1-Score of **0.86** at a confidence threshold of **0.420**, providing the best balance between not missing objects and not making false detections.
 
 #### Recall-Confidence Curve
