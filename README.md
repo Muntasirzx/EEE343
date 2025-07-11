@@ -111,7 +111,7 @@ To train the model on your own custom dataset, follow the steps outlined in the 
 
 To run inference on a new video or image using the pre-trained weights:
 
-**Notebook:** [`Inference_Mask_detection.ipynb`](./Inference_Mask_detection.ipynb)
+**Notebook:** [`Inference_Mask_detection.ipynb`](https://github.com/Muntasirzx/EEE343/blob/545f48509604a70d6c843029b3acd29a8866ea96/Files%20and%20Codes/Mask_Detection_with_YOLO10.ipynb)
 
 1.  **Upload Your Files**:
     * Upload your trained model weights (`best.pt`) to your Google Drive.
