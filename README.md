@@ -100,7 +100,7 @@ You can easily replicate the training process or run inference using your own da
 
 To train the model on your own custom dataset, follow the steps outlined in the training notebook:
 
-**Notebook:** [`Mask_Detection_with_YOLOv10.ipynb`](./Mask_Detection_with_YOLOv10.ipynb)
+**Notebook:** [`Mask_Detection_with_YOLOv10.ipynb`](https://github.com/Muntasirzx/EEE343/blob/545f48509604a70d6c843029b3acd29a8866ea96/Files%20and%20Codes/Mask_Detection_with_YOLO10.ipynb)
 
 1.  **Set up Your Dataset**: Organize your images and YOLO-formatted `.txt` label files into `train/`, `valid/`, and `test/` directories.
 2.  **Configure `data.yaml`**: Create a YAML file that points to your dataset directories and defines your class names and number.
@@ -111,7 +111,7 @@ To train the model on your own custom dataset, follow the steps outlined in the 
 
 To run inference on a new video or image using the pre-trained weights:
 
-**Notebook:** [`Inference_Mask_detection.ipynb`](https://github.com/Muntasirzx/EEE343/blob/545f48509604a70d6c843029b3acd29a8866ea96/Files%20and%20Codes/Mask_Detection_with_YOLO10.ipynb)
+**Notebook:** [`Inference_Mask_detection.ipynb`](https://github.com/Muntasirzx/EEE343/blob/545f48509604a70d6c843029b3acd29a8866ea96/Files%20and%20Codes/Inference_Mask_detection.ipynb)
 
 1.  **Upload Your Files**:
     * Upload your trained model weights (`best.pt`) to your Google Drive.
