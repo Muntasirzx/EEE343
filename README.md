@@ -1,7 +1,3 @@
-<p align="center">
-  <img src="https://github.com/Muntasirzx/EEE343/blob/fe3afca8b1b5c8440c309d1cf45848613d9d239f/Data/mask_unmasked_1-ezgif.com-optimize.gif" alt="Project Banner"/>
-</p>
-
 # Real-Time Face Mask Detection with YOLOv10
 
 ![PyTorch](https://img.shields.io/badge/PyTorch-%23EE4C2C.svg?style=for-the-badge&logo=PyTorch&logoColor=white)
@@ -10,6 +6,10 @@
 
 A high-performance, real-time system for detecting faces with and without masks, leveraging the state-of-the-art **YOLOv10** object detection model. This project is fine-tuned on a custom dataset to provide accurate and efficient monitoring in various environments.
 
+
+<p align="center">
+  <img src="https://raw.githubusercontent.com/Muntasirzx/EEE343/fe3afca8b1b5c8440c309d1cf45848613d9d239f/Data/mask_unmasked_1-ezgif.com-optimize.gif" alt="Project Banner"/>
+</p>
 ---
 
 ## 🚀 Project Overview
