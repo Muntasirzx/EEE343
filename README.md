@@ -1,5 +1,5 @@
 <p align="center">
-  <img src="https://raw.githubusercontent.com/your-username/your-repo/main/images/results.jpg" alt="Project Banner"/>
+  <img src="https://github.com/Muntasirzx/EEE343/blob/fe3afca8b1b5c8440c309d1cf45848613d9d239f/Data/mask_unmasked_1-ezgif.com-optimize.gif" alt="Project Banner"/>
 </p>
 
 # Real-Time Face Mask Detection with YOLOv10
